@@ -37,4 +37,12 @@ class Result(models.Model):
     end_time=models.DateTimeField(auto_now=True)
     def __str__(self) -> str:
         return f"{self.check_student}" 
+class Register(models.Model):
+    fname=models.CharField(max_length=100)
+    lname=models.CharField(max_length=100)
+    age=models.IntegerField()
+    email=models.EmailField()
+    password=models.CharField(max_length=15)
+    def __str__(self) ->str:
+        return self.fname
     
