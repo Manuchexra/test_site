@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.request import Request
-from .models import Register
+from .models import Register1
 
 from .models import Test,User
 from .serializers import TestSerializer, UserSerializer, ResultSerializer
@@ -35,11 +35,11 @@ class TestView(APIView):
             except Test.DoesNotExist:
                 return Response(status=status.HTTP_404_NOT_FOUND)
 from django.http import JsonResponse
-from .models import Register
+from .models import Register1
 from .serializers import RegisterSerializer
 
 def register(request):
     if request.method == 'GET':
-        registers = Register.objects.all()
+        registers = Register1.objects.all()
         serializer = RegisterSerializer(registers, many=True)
         return JsonResponse(serializer.data, safe=False)

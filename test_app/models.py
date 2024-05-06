@@ -37,7 +37,7 @@ class Result(models.Model):
     end_time=models.DateTimeField(auto_now=True)
     def __str__(self) -> str:
         return f"{self.check_student}" 
-class Register(models.Model):
+class Register1(models.Model):
     fname=models.CharField(max_length=100)
     lname=models.CharField(max_length=100)
     age=models.IntegerField()
