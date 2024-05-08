@@ -43,3 +43,20 @@ def register(request):
         registers = Register1.objects.all()
         serializer = RegisterSerializer(registers, many=True)
         return JsonResponse(serializer.data, safe=False)
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+@api_view(['POST'])
+def login(request):
+    uname = request.data.get('uname')
+    password = request.data.get('password')
+    # Bu erda foydalanuvchi autentifikatsiyasi uchun kerakli logika yoziladi
+    # Misol uchun, foydalanuvchi ma'lumotlari tekshiriladi va to'g'ri bo'lsa autentifikatsiya muvaffaqiyatli deb qaytariladi
+    if uname == 'test' and password == 'test123':
+        return Response({'status': 'auth'})
+    else:
+        return Response({'status': 'invalid'})
